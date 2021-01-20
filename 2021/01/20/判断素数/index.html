@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>判断素数 | bearhappy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="判断素数素数是除了1和自己以外没有除数的自然数。 简单方法对要验证的数字a，判断从2（最小的素数）开始，到√a的所有整数能否整除a，若存在可以整除的数，则a不是素数。 1234for(int i&#x3D;2; i &lt; (int)sqrt((double)a); i++)&amp;#123;    if(a % i &#x3D;&#x3D; 0)        break;&amp;#125; 费马素性检验 费马小定理： p&#x3D;prime">
+  <meta name="description" content="素数是除了1和自己以外没有除数的自然数。 简单方法对要验证的数字a，判断从2（最小的素数）开始，到√a的所有整数能否整除a，若存在可以整除的数，则a不是素数。 1234for(int i&#x3D;2; i &lt; (int)sqrt((double)a); i++)&amp;#123;    if(a % i &#x3D;&#x3D; 0)        break;&amp;#125; 费马素性检验 费马小定理： p&#x3D;prime num">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="判断素数">
 <meta property="og:url" content="http://example.com/2021/01/20/%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="判断素数素数是除了1和自己以外没有除数的自然数。 简单方法对要验证的数字a，判断从2（最小的素数）开始，到√a的所有整数能否整除a，若存在可以整除的数，则a不是素数。 1234for(int i&#x3D;2; i &lt; (int)sqrt((double)a); i++)&amp;#123;    if(a % i &#x3D;&#x3D; 0)        break;&amp;#125; 费马素性检验 费马小定理： p&#x3D;prime">
+<meta property="og:site_name" content="bearhappy的博客">
+<meta property="og:description" content="素数是除了1和自己以外没有除数的自然数。 简单方法对要验证的数字a，判断从2（最小的素数）开始，到√a的所有整数能否整除a，若存在可以整除的数，则a不是素数。 1234for(int i&#x3D;2; i &lt; (int)sqrt((double)a); i++)&amp;#123;    if(a % i &#x3D;&#x3D; 0)        break;&amp;#125; 费马素性检验 费马小定理： p&#x3D;prime num">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-20T07:06:40.685Z">
-<meta property="article:modified_time" content="2021-01-18T06:09:53.951Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:published_time" content="2021-01-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-20T09:09:38.195Z">
+<meta property="article:author" content="bearhappy">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="bearhappy的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -157,9 +158,24 @@
             <article id="post-判断素数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      判断素数
+    </h1>
+  
+
+        
+        <a href="/2021/01/20/%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="判断素数"><a href="#判断素数" class="headerlink" title="判断素数"></a>判断素数</h1><p><strong>素数是除了1和自己以外没有除数的自然数。</strong></p>
+        <p><strong>素数是除了1和自己以外没有除数的自然数。</strong></p>
 <h2 id="简单方法"><a href="#简单方法" class="headerlink" title="简单方法"></a>简单方法</h2><p>对要验证的数字a，判断从2（最小的素数）开始，到√a的所有整数能否整除a，若存在可以整除的数，则a不是素数。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i &lt; (<span class="keyword">int</span>)<span class="built_in">sqrt</span>((<span class="keyword">double</span>)a); i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a % i == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="费马素性检验"><a href="#费马素性检验" class="headerlink" title="费马素性检验"></a>费马素性检验</h2><blockquote>
@@ -205,6 +221,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -269,18 +296,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/01/20/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/01/20/%E5%8C%BA%E5%9D%97%E9%93%BE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          区块链学习笔记
         
       </div>
     </a>
   
   
     <a href="/2021/01/20/%E8%87%AA%E5%BB%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">自建博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,7 +350,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 John Doe
+    		&copy; 2021 bearhappy
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -404,6 +431,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
