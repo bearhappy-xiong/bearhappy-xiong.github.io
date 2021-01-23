@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>bearhappy的博客</title>
+  <title>二维数组与数组指针 | bearhappy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 二维数组与双重指针 date: 2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函">
+  <meta name="description" content="一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函数声明：void fun(int *a[10]);  函数调用：fun(array);  访问：使用*(a[i]+j)访问数组中的元素 3、指">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bearhappy的博客">
+<meta property="og:title" content="二维数组与数组指针">
 <meta property="og:url" content="http://example.com/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="bearhappy的博客">
-<meta property="og:description" content="title: 二维数组与双重指针 date: 2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函">
+<meta property="og:description" content="一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函数声明：void fun(int *a[10]);  函数调用：fun(array);  访问：使用*(a[i]+j)访问数组中的元素 3、指">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-23T09:57:54.703Z">
-<meta property="article:modified_time" content="2021-01-23T10:02:49.144Z">
+<meta property="article:published_time" content="2021-01-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-23T13:39:42.682Z">
 <meta property="article:author" content="bearhappy">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="bearhappy的博客" type="application/atom+xml">
@@ -159,14 +161,36 @@
             <article id="post-二维数组与双重指针" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二维数组与数组指针
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/" class="archive-article-date">
+  	<time datetime="2021-01-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-23</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 二维数组与双重指针</p>
-<p>date: 2021-01-23 17:56</p>
-<p>tags: </p>
-<pre><code>- C语言
-- 编程技巧</code></pre>
-<h1 id="二维数组与双重指针-1"><a href="#二维数组与双重指针-1" class="headerlink" title="二维数组与双重指针^1"></a>二维数组与双重指针<a href="Ven_j:https://blog.csdn.net/u013684730">^1</a></h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、二维数组"><a href="#1、二维数组" class="headerlink" title="1、二维数组"></a>1、二维数组</h4><p><code> int array[10][10];</code><br>  函数声明： <code>void fun(int a[][10])</code><br>  函数调用：<code>fun(array);</code><br>  访问： 一般使用<code>a[i][j]</code>来访问数组中的元素</p>
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、二维数组"><a href="#1、二维数组" class="headerlink" title="1、二维数组"></a>1、二维数组</h4><p><code> int array[10][10];</code><br>  函数声明： <code>void fun(int a[][10])</code><br>  函数调用：<code>fun(array);</code><br>  访问： 一般使用<code>a[i][j]</code>来访问数组中的元素</p>
 <h4 id="2、指针数组"><a href="#2、指针数组" class="headerlink" title="2、指针数组"></a>2、指针数组</h4><p><code>  int *array[10];</code><br>  函数声明：<code>void fun(int *a[10]);</code><br>  函数调用：<code>fun(array);</code><br>  访问：使用<code>*(a[i]+j)</code>访问数组中的元素</p>
 <h4 id="3、指向指针的指针"><a href="#3、指向指针的指针" class="headerlink" title="3、指向指针的指针"></a>3、指向指针的指针</h4><p><code>int **array;</code><br>  函数声明：<code>void fun(int **a);</code><br>  函数调用：<code>fun(array);</code><br>  访问：<code>*(*(a+i) + j) </code>或者<code>a[i][j]​</code>访问元素（使用双重指针表示的二维数组的访问方法）</p>
 <a id="more"></a>
@@ -233,6 +257,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -425,6 +464,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">

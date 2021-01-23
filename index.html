@@ -159,14 +159,28 @@
     <article id="post-二维数组与双重指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/">二维数组与数组指针</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/" class="archive-article-date">
+  	<time datetime="2021-01-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-23</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 二维数组与双重指针</p>
-<p>date: 2021-01-23 17:56</p>
-<p>tags: </p>
-<pre><code>- C语言
-- 编程技巧</code></pre>
-<h1 id="二维数组与双重指针-1"><a href="#二维数组与双重指针-1" class="headerlink" title="二维数组与双重指针^1"></a>二维数组与双重指针<a href="Ven_j:https://blog.csdn.net/u013684730">^1</a></h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、二维数组"><a href="#1、二维数组" class="headerlink" title="1、二维数组"></a>1、二维数组</h4><p><code> int array[10][10];</code><br>  函数声明： <code>void fun(int a[][10])</code><br>  函数调用：<code>fun(array);</code><br>  访问： 一般使用<code>a[i][j]</code>来访问数组中的元素</p>
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、二维数组"><a href="#1、二维数组" class="headerlink" title="1、二维数组"></a>1、二维数组</h4><p><code> int array[10][10];</code><br>  函数声明： <code>void fun(int a[][10])</code><br>  函数调用：<code>fun(array);</code><br>  访问： 一般使用<code>a[i][j]</code>来访问数组中的元素</p>
 <h4 id="2、指针数组"><a href="#2、指针数组" class="headerlink" title="2、指针数组"></a>2、指针数组</h4><p><code>  int *array[10];</code><br>  函数声明：<code>void fun(int *a[10]);</code><br>  函数调用：<code>fun(array);</code><br>  访问：使用<code>*(a[i]+j)</code>访问数组中的元素</p>
 <h4 id="3、指向指针的指针"><a href="#3、指向指针的指针" class="headerlink" title="3、指向指针的指针"></a>3、指向指针的指针</h4><p><code>int **array;</code><br>  函数声明：<code>void fun(int **a);</code><br>  函数调用：<code>fun(array);</code><br>  访问：<code>*(*(a+i) + j) </code>或者<code>a[i][j]​</code>访问元素（使用双重指针表示的二维数组的访问方法）</p>
         
@@ -179,6 +193,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -634,6 +663,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">
