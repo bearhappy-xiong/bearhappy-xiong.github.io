@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>bearhappy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 二维数组与双重指针 date:2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函数">
+  <meta name="description" content="title: 二维数组与双重指针 date: 2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bearhappy的博客">
 <meta property="og:url" content="http://example.com/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="bearhappy的博客">
-<meta property="og:description" content="title: 二维数组与双重指针 date:2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函数">
+<meta property="og:description" content="title: 二维数组与双重指针 date: 2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-23T09:57:54.703Z">
-<meta property="article:modified_time" content="2021-01-23T09:57:22.641Z">
+<meta property="article:modified_time" content="2021-01-23T10:02:49.144Z">
 <meta property="article:author" content="bearhappy">
 <meta name="twitter:card" content="summary">
   
@@ -162,13 +162,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>title: 二维数组与双重指针</p>
-<p>date:2021-01-23 17:56</p>
+<p>date: 2021-01-23 17:56</p>
 <p>tags: </p>
 <pre><code>- C语言
 - 编程技巧</code></pre>
 <h1 id="二维数组与双重指针-1"><a href="#二维数组与双重指针-1" class="headerlink" title="二维数组与双重指针^1"></a>二维数组与双重指针<a href="Ven_j:https://blog.csdn.net/u013684730">^1</a></h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、二维数组"><a href="#1、二维数组" class="headerlink" title="1、二维数组"></a>1、二维数组</h4><p><code> int array[10][10];</code><br>  函数声明： <code>void fun(int a[][10])</code><br>  函数调用：<code>fun(array);</code><br>  访问： 一般使用<code>a[i][j]</code>来访问数组中的元素</p>
 <h4 id="2、指针数组"><a href="#2、指针数组" class="headerlink" title="2、指针数组"></a>2、指针数组</h4><p><code>  int *array[10];</code><br>  函数声明：<code>void fun(int *a[10]);</code><br>  函数调用：<code>fun(array);</code><br>  访问：使用<code>*(a[i]+j)</code>访问数组中的元素</p>
 <h4 id="3、指向指针的指针"><a href="#3、指向指针的指针" class="headerlink" title="3、指向指针的指针"></a>3、指向指针的指针</h4><p><code>int **array;</code><br>  函数声明：<code>void fun(int **a);</code><br>  函数调用：<code>fun(array);</code><br>  访问：<code>*(*(a+i) + j) </code>或者<code>a[i][j]​</code>访问元素（使用双重指针表示的二维数组的访问方法）</p>
+<a id="more"></a>
+
 <h2 id="二、例题分析"><a href="#二、例题分析" class="headerlink" title="二、例题分析"></a>二、例题分析</h2><p>下面是一道相关的题目：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ROW 2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COL 3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myputs</span><span class="params">(<span class="keyword">char</span> **pos)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> **p;</span><br><span class="line">    <span class="keyword">char</span> a[ROW][COL]=&#123;<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;def&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    p = a;</span><br><span class="line">    myputs(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myputs</span><span class="params">(<span class="keyword">char</span> **p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; ROW; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; COL; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, p[i][j]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>乍一看，这个题目将会打印出字符。但是实际上，这个程序运行时会出现段错误。</p>
