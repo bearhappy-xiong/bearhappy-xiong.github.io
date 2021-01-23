@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 教程 | bearhappy的博客</title>
+  <title>bearhappy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小萌新">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: 二维数组与双重指针 date:2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函数">
+<meta property="og:type" content="article">
 <meta property="og:title" content="bearhappy的博客">
-<meta property="og:url" content="http://example.com/tags/%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:url" content="http://example.com/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="bearhappy的博客">
-<meta property="og:description" content="小萌新">
+<meta property="og:description" content="title: 二维数组与双重指针 date:2021-01-23 17:56 tags:  - C语言 - 编程技巧 二维数组与双重指针^1一、简介1、二维数组 int array[10][10];  函数声明： void fun(int a[][10])  函数调用：fun(array);  访问： 一般使用a[i][j]来访问数组中的元素 2、指针数组  int *array[10];  函数">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-23T09:57:54.703Z">
+<meta property="article:modified_time" content="2021-01-23T09:57:22.641Z">
 <meta property="article:author" content="bearhappy">
 <meta name="twitter:card" content="summary">
   
@@ -154,178 +156,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-二维数组与双重指针" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: 二维数组与双重指针</p>
+<p>date:2021-01-23 17:56</p>
+<p>tags: </p>
+<pre><code>- C语言
+- 编程技巧</code></pre>
+<h1 id="二维数组与双重指针-1"><a href="#二维数组与双重指针-1" class="headerlink" title="二维数组与双重指针^1"></a>二维数组与双重指针<a href="Ven_j:https://blog.csdn.net/u013684730">^1</a></h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h4 id="1、二维数组"><a href="#1、二维数组" class="headerlink" title="1、二维数组"></a>1、二维数组</h4><p><code> int array[10][10];</code><br>  函数声明： <code>void fun(int a[][10])</code><br>  函数调用：<code>fun(array);</code><br>  访问： 一般使用<code>a[i][j]</code>来访问数组中的元素</p>
+<h4 id="2、指针数组"><a href="#2、指针数组" class="headerlink" title="2、指针数组"></a>2、指针数组</h4><p><code>  int *array[10];</code><br>  函数声明：<code>void fun(int *a[10]);</code><br>  函数调用：<code>fun(array);</code><br>  访问：使用<code>*(a[i]+j)</code>访问数组中的元素</p>
+<h4 id="3、指向指针的指针"><a href="#3、指向指针的指针" class="headerlink" title="3、指向指针的指针"></a>3、指向指针的指针</h4><p><code>int **array;</code><br>  函数声明：<code>void fun(int **a);</code><br>  函数调用：<code>fun(array);</code><br>  访问：<code>*(*(a+i) + j) </code>或者<code>a[i][j]​</code>访问元素（使用双重指针表示的二维数组的访问方法）</p>
+<h2 id="二、例题分析"><a href="#二、例题分析" class="headerlink" title="二、例题分析"></a>二、例题分析</h2><p>下面是一道相关的题目：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ROW 2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COL 3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myputs</span><span class="params">(<span class="keyword">char</span> **pos)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> **p;</span><br><span class="line">    <span class="keyword">char</span> a[ROW][COL]=&#123;<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;def&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    p = a;</span><br><span class="line">    myputs(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myputs</span><span class="params">(<span class="keyword">char</span> **p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; ROW; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; COL; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, p[i][j]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>乍一看，这个题目将会打印出字符。但是实际上，这个程序运行时会出现段错误。</p>
+<p>原因：将二维数组作为二重指针传递时，只是将数组的头指针传递给了函数，其内部结构不清楚是否能够正确访问。</p>
+<p>改正：</p>
+<p>方法一：将 <code>void myputs (char **p) </code>改成<code> void myputs(char p[ROW][COL])</code></p>
+<p>方法二：将<code>char a[ROW][COL] </code>改成  <code>char *a[COL]</code></p>
+<p>第一种方法很好理解，肯定是可行的。我们来看看方法二。</p>
+<p>在《C专家编程》中，讲述了参数传递过程的问题，下面就是跟我们的主题有关的内容</p>
+<p>数组和指针参数是如何被编译器修改的？</p>
+<p>“*<strong>*数组名被改写成一个指针参数”规则并不是递归定义的。数组的数组会被改写成“数组的指针”，而不是“指针的指针**</strong>”：</p>
+<p>实参                         所匹配的形参</p>
+<p>数组的数组       char c[8][10];         char (*)[10];      数组指针</p>
+<p>指针数组        char *c[10];          char **c;        指针的指针</p>
+<p>数组指针(行指针)    char (*c)[10];         char (*c)[10];      不改变</p>
+<p>指针的指针       char **c;            char **c;        不改变</p>
+<p>从上面可知，形参为char **c可以匹配的参数有 char **c 和 char *c[10]。</p>
+<p>为什么char **c可以匹配 char *c[10]， 不能匹配 char c[10][10]呢？这跟两者的内存分布相关。</p>
+<p>二维数组和双重指针的内存分布完全不同，因此它们之间不能相互传递,，如果传递的话就会出现段错误。但是char *a[3]可以是因为它的内存分布跟char**a是相同的。</p>
+<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p><code>char **p</code>和<code>char p[2][3]</code>之间不能相互传递参数，因为它们具体的内存分布不一样，这样在运行时就会出现段错误。我们还需注意的一点：</p>
+<p>二维数组中的<code>a[i][j]</code>和双重指针中的<code>a[i][j]</code>的意思是不一样的。</p>
+<p>二维数组中<code>int a[10][10]</code>中，<code>a[i][j]</code>指的是第i行第j列数元素。</p>
+<p>双重指针中<code>int **a</code>中，<code> a[i][j]</code>指的是第i个存放<code>int *</code>指针所指向地址中的第j个元素。也就是<code>*(*(a+i)+j)</code>。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>大哥大嫂过年好!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wepay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/20/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-  	<time datetime="2021-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/20/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/">vscode快捷键</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/01/23/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E5%8F%8C%E9%87%8D%E6%8C%87%E9%92%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/20/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="archive-article-date">
-  	<time datetime="2021-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/20/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vscode快捷键</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/20/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链学习笔记</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/20/%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2021-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/20/%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0/">判断素数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/20/%E8%87%AA%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2021-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/20/%E8%87%AA%E5%BB%BA%E5%8D%9A%E5%AE%A2/">自建博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">建站</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -348,9 +353,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
