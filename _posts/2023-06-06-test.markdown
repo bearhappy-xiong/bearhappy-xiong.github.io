@@ -11,6 +11,6 @@ mermaid: true  # 图表生成工具
 
 
 
-![test-img](/assets/images/img-test.jpg){: width="700" height="400" }{: .normal }{: .shadow }
+![test-img](../assets/images/img-test.jpg){: width="700" height="400" }{: .normal }{: .shadow }
 _Image Caption_
 
