@@ -1,0 +1,16 @@
+---
+title: TEST
+date: 2023-06-06 14:43:00 +0800
+categories: [Animal, Insect]
+tags: [bee]   # TAG names should always be lowercase
+toc: false
+comments: false
+math: true
+mermaid: true  # 图表生成工具
+---
+
+
+
+![test-img](/assets/images/img-test.jpg){: width="700" height="400" }{: .normal }{: .shadow }
+_Image Caption_
+
