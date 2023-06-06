@@ -1,4 +1,5 @@
-name: "Build and Deploy"
+name: "Build and Deploy"  # 工作流名称
+# 指定触发工作流的事件
 on:
   push:
     branches:
@@ -11,12 +12,13 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+# 指定工作流运行所需的权限
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 指定工作流的并发设置, 它确保只能同时运行一个部署，并在触发新部署时取消任何正在进行的部署
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
@@ -24,10 +26,10 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 定义了一个名为 build 的作业，它在 Ubuntu 环境中运行
 
     steps:
-      - name: Checkout
+      - name: Checkout  # 检出作业的存储库代码
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -35,37 +37,37 @@ jobs:
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
 
-      - name: Setup Pages
+      - name: Setup Pages  # 为作业设置 GitHub Pages 配置
         id: pages
         uses: actions/configure-pages@v3
 
-      - name: Setup Ruby
+      - name: Setup Ruby  # 设置 Ruby 并安装作业所需的任何依赖项
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3   # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
           bundler-cache: true
 
-      - name: Build site
+      - name: Build site  # 使用 Jekyll 构建站点，并设置生产环境
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
-      - name: Test site
+      - name: Test site  # 使用 HTMLProofer 测试站点
         run: |
           bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
 
-      - name: Upload site artifact
+      - name: Upload site artifact  # 将构建的站点上传到 GitHub Pages
         uses: actions/upload-pages-artifact@v1
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
-  deploy:
-    environment:
-      name: github-pages
+  deploy:  # 定义了一个部署作业，该作业将构建的站点部署到github pages
+    environment:  # 指定部署的环境名称和 URL
+      name: github-pages  
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+    runs-on: ubuntu-latest  # 在 Ubuntu 上运行
+    needs: build  # 依赖build作业
+    steps:  # 使用 actions/deploy-pages 动作部署站点
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
