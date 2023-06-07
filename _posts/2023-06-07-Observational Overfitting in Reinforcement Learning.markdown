@@ -1,10 +1,10 @@
 ---
-title: TEST
-date: 2023-06-06 14:43:00 +0800
-categories: [Animal, Insect]
-tags: [bee]   # TAG names should always be lowercase
-toc: false
-comments: false
+title: Observational Overfitting in Reinforcement Learning
+date: 2023-06-07 09:30:00 +0800
+categories: [RL]
+tags: [oo问题]   # TAG names should always be lowercase
+toc: true
+comments: true
 math: true
 mermaid: true  # 图表生成工具
 ---
@@ -28,7 +28,8 @@ _Image 1_
 
 联系论文: [[IDAAC]], [[Local feature swapping for generalization in reinforcement learning]] 都研究了这个问题.
 
-> [!question]+ 什么是隐式正则化(implicit regularization)?
+> 什么是隐式正则化(implicit regularization)?
+>
 > 神经网络是属于过参数化的模型（包含比所需参数数目更多的参数），所以有很多组参数都能最小化相应的误差，那么最后神经网络为什么学习到某些解，而不是另一些解呢？这是因为神经网络的优化过程包含了隐含的正则化，类似于**在所有能最小化相应误差的解中，返回范数最小的那个解**。但是这个**约束是由于神经网络优化自带形成的，而不是我们显式加上来的**，我们把它称作 implicit regularization。
 
 ## 一、背景
@@ -36,7 +37,7 @@ Observational overfitting 是啥意思？设想一种情况：Observation 中本
 比如下面这个索尼克游戏(滚动的刺猬球)中，可以使用 [[saliency map]] 的技术观察智能体究竟是根据那些特征来做决策的；依赖度比较高的区域用红色阴影标注出来了。
 我们可以看到，学习出来的智能体很依赖于时间、背景中的云，而不是依赖于场景中的障碍物和要控制的索尼克刺猬；这说明相应的智能体是根据非本质的一些特征来做决策的，因此泛化性可能会不好。
 为什么自动学习的过程中会使得智能体依赖于这些非本质的特征呢？*依赖于时间来做决策其实相当于是学习到一个开环控制，即完全不管场景是啥，智能体学习到一个依赖于时间的策略，等于是闭着眼睛数着时间来操作*。
-![[Pasted image 20220518144414.png]]
+
 
 ## 二、问题分析
 
