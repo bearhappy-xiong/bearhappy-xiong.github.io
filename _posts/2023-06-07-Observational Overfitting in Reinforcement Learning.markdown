@@ -41,7 +41,7 @@ Observational overfitting 是啥意思？设想一种情况：Observation 中本
 
 ## 二、问题分析
 
-![](https://pic4.zhimg.com/v2-fbd2d0f914f48bc7e3804be6d11b0587_r.jpg)
+![1](https://pic4.zhimg.com/v2-fbd2d0f914f48bc7e3804be6d11b0587_r.jpg)
 _1_
 
 这里提出了一个 `(f,g)-sheme` 用于故意向 observation 里面掺入一些 spurious feature 的方法来测试强化学习算法的泛化性。
@@ -51,48 +51,48 @@ _1_
 这里是怎么做到分解的呢? 又为什么要先分开又合上呢?
 ```
 
-![](https://pic1.zhimg.com/v2-80663dc35bfe32af59a002461d6f84d4_r.jpg)
+![2](https://pic1.zhimg.com/v2-80663dc35bfe32af59a002461d6f84d4_r.jpg)
 _2_
 
 这里引用了之前的一个 generalization upper bound 结论，说在这个设定下，如果函数族里面的函数都不受到 theta 的影响（泛化性好），那我们相应的 gap 就小。不过我把公式和他们说的没太对应上来，求大佬解释。
 
-![](https://pic2.zhimg.com/v2-8dbdb1158d8681d802514d6e48a4c5f5_r.jpg)
+![3](https://pic2.zhimg.com/v2-8dbdb1158d8681d802514d6e48a4c5f5_r.jpg)
 _3_
 
 下面文章通过在 LQR 场景下的理论分析，说明**最后策略的泛化性和训练时所见到的场景/任务的数量、注入 spurious features 的数目有关**，这些是由于 implicit regularization 导致的；实验上还说明泛化性还和策略网络的结构有关。不过仍然，前后的图、公式和文字，我还是没太对应上来。
 
-![](https://pic2.zhimg.com/v2-55abd540ab41f783549163bc0e7d2c19_r.jpg)
+![4](https://pic2.zhimg.com/v2-55abd540ab41f783549163bc0e7d2c19_r.jpg)
 _4_
 
-![](https://pic2.zhimg.com/v2-80bdd599103a740d72ddae50fddb7f2d_r.jpg)
+![5](https://pic2.zhimg.com/v2-80bdd599103a740d72ddae50fddb7f2d_r.jpg)
 _5_
 
 ## 三、实验
 
 最后，本文在 (f,g)-scheme 下跑了一些更复杂的实验。
 
-![](https://pic4.zhimg.com/v2-968f776d0857104d1fd61e8b8c03f7d3_r.jpg)
+![6](https://pic4.zhimg.com/v2-968f776d0857104d1fd61e8b8c03f7d3_r.jpg)
 _6_
 
-![](https://pic2.zhimg.com/v2-44c3f775b11b0070dbdc05d64476702d_r.jpg)
+![7](https://pic2.zhimg.com/v2-44c3f775b11b0070dbdc05d64476702d_r.jpg)
 _7_
 
-![](https://pic1.zhimg.com/v2-d4e11140efae5137197d2308384d4c80_r.jpg)
+![8](https://pic1.zhimg.com/v2-d4e11140efae5137197d2308384d4c80_r.jpg)
 _8_
 
-![](https://pic4.zhimg.com/v2-70bfcd68f99774ae484db80c287ccbc3_r.jpg)
+![9](https://pic4.zhimg.com/v2-70bfcd68f99774ae484db80c287ccbc3_r.jpg)
 _9_
 
-![](https://pic1.zhimg.com/v2-e35baaebe8d27e8866b869e971eb8460_r.jpg)
+![10](https://pic1.zhimg.com/v2-e35baaebe8d27e8866b869e971eb8460_r.jpg)
 _10_
 
-![](https://pic1.zhimg.com/v2-c097753c5624aab01f1d24924db941bc_r.jpg)
+![11](https://pic1.zhimg.com/v2-c097753c5624aab01f1d24924db941bc_r.jpg)
 _11_
 
-![](https://pic1.zhimg.com/v2-74d8cc00149b3480e96391caeb617d5c_r.jpg)
+![12](https://pic1.zhimg.com/v2-74d8cc00149b3480e96391caeb617d5c_r.jpg)
 _12_
 
-![](https://pic4.zhimg.com/v2-de18ada11442316b12a7448869263417_r.jpg)
+![13](https://pic4.zhimg.com/v2-de18ada11442316b12a7448869263417_r.jpg)
 _13_
 
 ## 四、总结
