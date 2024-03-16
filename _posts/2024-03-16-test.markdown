@@ -8,8 +8,6 @@ toc: true
 comments: true
 math: true
 mermaid: true  # 图表生成工具
-pin: true
-
 ---
 
 # Test
