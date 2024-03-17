@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Checkout  # 检出作业的存储库代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           # submodules: true
@@ -39,7 +39,7 @@ jobs:
 
       - name: Setup Pages  # 为作业设置 GitHub Pages 配置
         id: pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
       - name: Setup Ruby  # 设置 Ruby 并安装作业所需的任何依赖项
         uses: ruby/setup-ruby@v1
@@ -57,7 +57,7 @@ jobs:
           bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
 
       - name: Upload site artifact  # 将构建的站点上传到 GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
@@ -70,4 +70,4 @@ jobs:
     steps:  # 使用 actions/deploy-pages 动作部署站点
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
